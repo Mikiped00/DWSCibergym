@@ -1,0 +1,332 @@
+@font-face {
+    font-family: "Sen-Regular";
+    src: url('/util/Sen-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Sen-Bold";
+    src: url('/util/Sen-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Sen-ExtraBold";
+    src: url('/util/Sen-ExtraBold.ttf') format('truetype');
+}
+
+#table {
+	display: inline-block;
+	overflow-y: auto;
+	align-self: center;
+	border-radius: 5px;
+	border: 2px #d1d1d0;
+	height: 30%;
+	margin-right: 30px;
+	margin-left: 30px;
+}
+#table tr:hover {
+	background: #ccc ;
+}
+#table td:hover {
+	background: #000;
+	color: #fff;
+}
+#table th {
+	border-radius: 3px;
+	padding: 5px;
+	background-color: #63AEFF;
+	border:none;
+	color: white;
+}
+#table th, td {
+	text-align: center;
+	border-bottom: 1px solid rgb(155, 152, 152);
+	width: auto;
+	padding: 5px;
+	font-family: "Sen-Regular";
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+h1 {
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 40px;
+	font-family: "Sen-ExtraBold";
+	font-size: 50px;
+}
+
+h2, h3 {
+	font-family: "Sen-Bold";
+}
+
+p, input, ul, li, h4, label, span {
+	font-family: "Sen-Regular";
+	font-weight: normal;
+}
+
+body {
+	margin:0 auto;
+	background-image: url("fondo.svg");
+	background-color:rgba(254, 241, 210, 0.5);
+	/*background-color: #FEF1D2;*/
+	background-repeat: repeat -x;
+ 	background-attachment: fixed;
+ 	background-size: 100%;
+}
+
+#mainInput {
+	padding: 10px 28px;
+	width: 30%;
+	font-size: 20px;
+	cursor: pointer;
+	background-color: #95DBFF;
+	border-radius: 8px;
+	border: none;
+}
+#mainInput:hover {
+  background-color: #A1AEFF;
+  color: white;
+}
+
+#secondInput {
+	padding: 5px 10px;
+	font-size: 15px;
+	cursor: pointer;
+	background-color: #FAF873;
+	border-radius: 8px;
+}
+#secondInput:hover {
+  background-color: #FA5A5D;
+  color: white;
+}
+
+#thirdInput {
+	padding: 5px 5px;
+	width: 30%;
+	font-size: 13px;
+	cursor: pointer;
+	background-color: #ffccd0;
+	border-radius: 4px;
+	border: 1px solid grey;
+}
+#thirdInput:hover {
+  background-color: #86A3B3;
+  color: white;
+}
+
+input[type=text].filterInput,  input[type=number].filterInput{
+	width: 50%;
+	padding: 12px 17px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;;
+}
+
+input[type=text], input[type=email], input[type=number], input[type=password],  select {
+	width: 20%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=image] {
+	height: 55px;
+}
+
+div {text-align:center}
+
+#editor2 {
+	margin:auto;
+	width: 20%;
+	padding: 12px 20px;
+  	background-color: white;
+  	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.columnMember {
+	float: center;
+	margin:auto;
+	width: 50%;
+	padding: 10px;
+	text-align: center
+}
+
+.column {
+	float: left;
+	width: 24%;
+	padding: 10px;
+	margin: 5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+} 
+.results {
+	max-width: 500px;
+ 	margin: auto;
+}
+
+.alert {
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 10px;
+  margin-left:0px;
+  margin-right:0px;
+  width: 100%;
+}
+
+/* The close button */
+.closebtn {
+  float:left;
+  padding: 20;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
+/* NAVEGATION BAR*/
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: "Sen-Regular";
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: "Sen-Regular";
+  font-weight: normal;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ABOUT PAGE */
+ 
+.column-about {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+ 
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  background-color: rgba(111, 129, 168, 0.4);
+}
+ 
+.about-section {
+  padding: 50px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+ 
+.container {
+  padding: 0 16px;
+}
+ 
+.container::after, .row-about::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+ 
+.title {
+  color: #3B353B;
+  font-family: "Sen-Bold";
+}
+ 
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+ 
+.button:hover {
+  background-color: #555;
+}
+ 
+@media screen and (max-width: 650px) {
+  .column-about {
+    width: 100%;
+    display: block;
+  }
+}

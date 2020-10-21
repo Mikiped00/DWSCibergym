@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>CyberGYM URJC</title>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="/util/favicon.ico" sizes="16x16">
+	<script src="https://cdn.ckeditor.com/4.14.0/standard-all/ckeditor.js"></script>
+	<link rel="stylesheet" type="text/css" href="/util/style.css">
+</head>
+
+<body>
+	<div class="navbar">
+		<a href="/">Home</a>
+		<div class="dropdown">
+			<button class="dropbtn">MVC
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/showProfile">MVC Profile</a>
+				<a href="/menuMVC">MVC Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">API
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/api/member/showProfile.html">Rest API Profile</a>
+				<a href="/menuAPI">Rest API Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">...
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/login.html">Session</a>
+				<a href="/about.html">About us</a>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h1>Modify a lesson</h1>
+		<form th:action='@{/modifyLesson}' method="post">
+			<input type='hidden' th:name='updateLessonId' readonly th:value="${id}" required>
+			<p>Name:</p>
+			<input type='text' th:name='updateLessonName' placeholder='Name'>
+			<p>New description <i>(Rich Text):</i></p>
+			<textarea class="ckeditor" th:name="updateLessonDescription"></textarea>
+			<p>New available places:</p>
+			<input type='number' th:name='updateLessonPlaces' placeholder='Places'>
+			<p>New beginning time:</p>
+			<input type='number' th:name='updateBegginingHour' placeholder='Hour'>
+			<input type='number' th:name='updateBegginingMinutes' placeholder='Minutes'>
+			<p>New ending time:</p>
+			<input type='number' th:name='updateEndingHour' placeholder='Hour'>
+			<input type='number' th:name='updateEndingMinutes' placeholder='Minutes'>
+			<br><br><br>
+			<input id="mainInput" type='submit' th:name="action" th:value='Send' />
+
+		</form>
+	</div>
+</body>
+
+</html>

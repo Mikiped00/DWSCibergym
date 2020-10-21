@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>CyberGYM URJC</title>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="/util/favicon.ico" sizes="16x16">
+	<script src="/api/lesson/lesson.js"></script>
+	<script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/inline/ckeditor.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	<link rel="stylesheet" type="text/css" href="/util/style.css">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="navbar">
+		<a href="/">Home</a>
+		<div class="dropdown">
+			<button class="dropbtn">MVC
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/showProfile">MVC Profile</a>
+				<a href="/menuMVC">MVC Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">API
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/api/member/showProfile.html">Rest API Profile</a>
+				<a href="/menuAPI">Rest API Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">...
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/login.html">Session</a>
+				<a href="/about.html">About us</a>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h1>Modify a lesson</h1>
+		<p>Name</p>
+		<input type='text' id='updateLessonName' placeholder="Name">
+
+		<p>Description <i>(Rich Text):</i></p>
+		<div id="editor2" contenteditable="true" class="inline-editor">
+			<input type='text' id='updateLessonDescription' placeholder="Description">
+		</div>
+
+		<p>Available Places</p>
+		<input type='number' id='availablePlaces' placeholder="Available Places">
+		<p>Starting time:</p>
+		<input type='number' id='updateBegginingHour' placeholder="Hour">
+		<input type='number' id='updateBegginingMinutes' placeholder="Minutes">
+		<p>Ending time:</p>
+		<input type='number' id='updateEndingHour' placeholder="Hour">
+		<input type='number' id='updateEndingMinutes' placeholder="Minutes">
+		<br><br><button id="secondInput" type='button' onclick='modifyLesson()'>Modify Lesson</button>
+		<br><br>
+		<input id="mainInput" type='button' onclick="location.href ='/api/LessonRest.html'" value='Go Back'>
+
+
+		<script>
+			InlineEditor
+				.create(document.querySelector('#editor2'))
+				.then(newEditor => {
+					editor = newEditor;
+				})
+				.catch(error => {
+					console.error(error);
+				});
+		</script>
+	</div>
+</body>
+
+</html>

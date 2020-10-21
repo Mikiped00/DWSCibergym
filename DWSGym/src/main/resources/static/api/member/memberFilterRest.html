@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>CyberGYM URJC</title>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="/util/favicon.ico" sizes="16x16">
+	<script src="/api/member/member.js"></script>
+	<link rel="stylesheet" type="text/css" href="/util/style.css">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="navbar">
+		<a href="/">Home</a>
+		<div class="dropdown">
+			<button class="dropbtn">MVC
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/showProfile">MVC Profile</a>
+				<a href="/menuMVC">MVC Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">API
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/api/member/showProfile.html">Rest API Profile</a>
+				<a href="/menuAPI">Rest API Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">...
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/login.html">Session</a>
+				<a href="/about.html">About us</a>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h1>Member's Search</h1>
+		<input id="secondInput" type='button' onclick="location.href ='/api/MemberRest.html'" value='Go Back'>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="secondInput" type='button' onclick="location.href ='/'" value='Go to Main Page'>
+	</div><br>
+	<div class="row">
+		<div class="columnMember" style="background-color:#FA9F52;">
+			<h2>Search by name</h2>
+			<h4>Name beginning</h4>
+			<input id=name class="filterInput" type='text' placeholder='Name begins with...'>
+			<br><br><input id="mainInput" type='button' onclick='nameMemberFilter()' value='Get results'>
+		</div>
+	</div>
+	<div class="results">
+		<h3>Results:</h3>
+		<table id='table'>
+			<thead>
+				<tr>
+					<th>Dni</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Fee</th>
+				</tr>
+			</thead>
+			<tbody id='tableBody'>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

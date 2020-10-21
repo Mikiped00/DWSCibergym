@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>CyberGYM URJC</title>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="/util/favicon.ico" sizes="16x16">
+	<link rel="stylesheet" type="text/css" href="/util/style.css">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="navbar">
+		<a href="/">Home</a>
+		<div class="dropdown">
+			<button class="dropbtn">MVC
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/showProfile">MVC Profile</a>
+				<a href="/menuMVC">MVC Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">API
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/api/member/showProfile.html">Rest API Profile</a>
+				<a href="/menuAPI">Rest API Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">...
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/login.html">Session</a>
+				<a href="/about.html">About us</a>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h1>Please finish the registration</h1>
+		<h3>Complete the blank values</h3>
+		<form th:action='@{/autoRegister}' method="post">
+			<p>DNI:</p>
+			<input type='text' th:name='newMemberDni' placeholder='DNI' required />
+			<p>Username:</p>
+			<input type='text' th:name='newMemberName' placeholder="Name" th:value="${username}" required />
+			<p>Email:</p>
+			<input type='email' th:name='newMemberEmail' readonly="readonly" th:value="${email}" required />
+			<p>Password:</p>
+			<input type='password' th:name='newMemberpass' placeholder='Password' required />
+			<br><br><br>
+			<input id="mainInput" type='submit' th:name="action" th:value='Send' />
+		</form>
+	</div>
+</body>
+
+</html>

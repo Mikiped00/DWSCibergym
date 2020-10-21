@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>CyberGYM URJC</title>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="/util/favicon.ico" sizes="16x16">
+	<link rel="stylesheet" type="text/css" href="/util/style.css">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="navbar">
+		<a href="/">Home</a>
+		<div class="dropdown">
+			<button class="dropbtn">MVC
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/showProfile">MVC Profile</a>
+				<a href="/menuMVC">MVC Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">API
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/api/member/showProfile.html">Rest API Profile</a>
+				<a href="/menuAPI">Rest API Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">...
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/login.html">Session</a>
+				<a href="/about.html">About us</a>
+			</div>
+		</div>
+	</div>
+	<h1>Get Lessons</h1>
+	<h3>Lessons added to the database:</h3>
+	<br><br>
+	<div>
+		<table id='table'>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>See details</th>
+					{{#admin}}
+					<th>Modify</th>
+					<th>Delete</th>
+					{{/admin}}
+					<th>Reserved Members</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#registeredLessons}}
+				<tr>
+					<td>{{name}}</td>
+					<td>{{{description}}}</td>
+					<td><input id="secondInput" type='button' onclick="location.href ='/getLesson/{{id}}'"
+							value='Details'></td>
+
+					{{#admin}}
+					<td><input id="secondInput" type='button' onclick="location.href ='/auxModifyLesson/{{id}}'"
+							value='Modify'></td>
+					<td><input id="secondInput" type='button' onclick="location.href ='/deleteLesson/{{id}}'"
+							value='Delete'></td>
+					{{/admin}}
+					<td><input id="secondInput" type='button' onclick="location.href ='/getReservedMembers/{{id}}'"
+							value='Reserved Members'></td>
+
+				</tr>
+				{{/registeredLessons}}
+			</tbody>
+		</table>
+	</div>
+	<br><br>
+	{{#admin}}
+	<input id="mainInput" type='button' onclick="location.href ='/springmvc/lessonMVC.html'" value='Go Back'>
+	{{/admin}}
+	{{#user}}
+	<input id="mainInput" type='button' onclick="location.href ='/menuMVC'" value='Go Back'>
+	{{/user}}
+</body>
+
+</html>

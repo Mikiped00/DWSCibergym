@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>CyberGYM URJC</title>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="/util/favicon.ico" sizes="16x16">
+	<script src="/api/member/member.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	<link rel="stylesheet" type="text/css" href="/util/style.css">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="navbar">
+		<a href="/">Home</a>
+		<div class="dropdown">
+			<button class="dropbtn">MVC
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/showProfile">MVC Profile</a>
+				<a href="/menuMVC">MVC Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">API
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/api/member/showProfile.html">Rest API Profile</a>
+				<a href="/menuAPI">Rest API Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">...
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/login.html">Session</a>
+				<a href="/about.html">About us</a>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h1>Add a member</h1>
+		<p>Member's DNI:</p>
+		<input type='text' id='newMemberDni' placeholder='DNI' required>
+		<p>Name:</p>
+		<input type='text' id='newMemberName' placeholder='Name' required>
+		<p>Email:</p>
+		<input type='email' id='newMemberEmail' placeholder='Email' required>
+		<p>Password:</p>
+		<input type='password' id='newMemberpass' placeholder='Password' required>
+		<p>Role:</p>
+		<select id="newMemberRol" required>
+			<option disabled selected value="">Select Role</option>
+			<option value=ROLE_ADMIN>Admin</option>
+			<option value=ROLE_USER>User</option>
+		</select>
+
+		<br><br><button id="secondInput" type='button' onclick='addMember()'>Add Member</button>
+		<br><br><br><input id="mainInput" type='button' onclick="location.href ='/api/MemberRest.html'" value='Go Back'>
+	</div>
+</body>
+
+</html>

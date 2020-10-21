@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>CyberGYM URJC</title>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="/util/favicon.ico" sizes="16x16">
+	<link rel="stylesheet" type="text/css" href="/util/style.css">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="navbar">
+		<a href="/">Home</a>
+		<div class="dropdown">
+			<button class="dropbtn">MVC
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/showProfile">MVC Profile</a>
+				<a href="/menuMVC">MVC Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">API
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/api/member/showProfile.html">Rest API Profile</a>
+				<a href="/menuAPI">Rest API Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">...
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/login.html">Session</a>
+				<a href="/about.html">About us</a>
+			</div>
+		</div>
+	</div>
+	<h1>Details of the lesson</h1>
+	<div>
+		<table id='table'>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Available Places</th>
+					<th>Beginning Time</th>
+					<th>Ending Time</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="lesson : ${registeredLessons}">
+					<td><span th:text="${lesson.name}"> Name </span></td>
+					<td><span th:utext="${lesson.description}"> Description </span></td>
+					<td><span th:text="${lesson.availablePlaces}"> Available places </span></td>
+					<td><span th:text="${lesson.begginingHour + ':' + lesson.begginingMinutes}"> Beginning Hour </span>
+					</td>
+					<td><span th:text="${lesson.endingHour + ':' + lesson.endingMinutes}"> Ending Hour </span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<input id="mainInput" type='button' onclick="location.href ='/getLessons'" value='Get All Lessons'>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<title>CyberGYM URJC</title>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="/util/favicon.ico" sizes="16x16">
+	<link rel="stylesheet" type="text/css" href="/util/style.css">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="navbar">
+		<a href="/">Home</a>
+		<div class="dropdown" sec:authorize="isAuthenticated()">
+			<button class="dropbtn">MVC
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/showProfile">MVC Profile</a>
+				<a href="/menuMVC">MVC Menu</a>
+			</div>
+		</div>
+		<div class="dropdown" sec:authorize="isAuthenticated()">
+			<button class="dropbtn">API
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/api/member/showProfile.html">Rest API Profile</a>
+				<a href="/menuAPI">Rest API Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">...
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/login.html">Session</a>
+				<a href="/about.html">About us</a>
+			</div>
+		</div>
+	</div>
+	<h1>Manage session</h1>
+	<div sec:authorize="isAnonymous()">
+		<p th:if="${loginError}">Wrong user or password</p>
+		<form th:action="@{/login.html}" method="post">
+			<label for="email">Email</label>:
+			<input type="text" id="email" name="email"/> <br />
+			<label for="password">Password</label>:
+			<input type="password" id="password" name="password"/> <br /><br />
+			<input type ="image" src="/util/loginEmail.png" alt="submit"
+			onMouseOver="this.src='/util/loginEmail_hover.png'" onMouseOut="this.src='/util/loginEmail.png'">
+		</form>
+		<br><br>
+		<div style="margin:auto; width: 50%; height: 20px; border-bottom: 1px solid black; text-align: center">
+  			<span style="font-size: 30px; background-color: #F3F5F6; padding: 0 10px;">OR</span>
+		</div>
+		<br><br>
+		<input type='image' onclick="location.href ='/oauth2/authorization/google'" src="/util/loginGoogle.png"
+			onMouseOver="this.src='/util/loginGoogle_hover.png'" onMouseOut="this.src='/util/loginGoogle.png'">
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type='image' onclick="location.href ='/oauth2/authorization/github'" src="/util/loginGithub.png"
+			onMouseOver="this.src='/util/loginGithub_hover.png'" onMouseOut="this.src='/util/loginGithub.png'">
+	</div>
+	<div sec:authorize="isAuthenticated()">
+		<h2>Do you want to finish your session, <span th:text="${name}">Nombre</span>?</h2>
+		<form th:action="@{/logout}" method="post">
+			<input id="mainInput" type="submit" value="Log out" />
+		</form>
+	</div>
+
+	<br><br>
+	<div><input id="mainInput" type='button' onclick="location.href ='/'" value='Go to Main Page'></div>
+</body>
+
+</html>

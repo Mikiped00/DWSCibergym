@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>CyberGYM URJC</title>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="/util/favicon.ico" sizes="16x16">
+	<link rel="stylesheet" type="text/css" href="/util/style.css">
+	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+
+<body style="margin-top: 0px; margin-left:0px; margin-right:0px;">
+	<div class="navbar">
+		<a href="/">Home</a>
+		{{#logged}}
+		<div class="dropdown">
+			<button class="dropbtn">MVC
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/showProfile">MVC Profile</a>
+				<a href="/menuMVC">MVC Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">API
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/api/member/showProfile.html">Rest API Profile</a>
+				<a href="/menuAPI">Rest API Menu</a>
+			</div>
+		</div>
+		{{/logged}}
+		<div class="dropdown">
+			<button class="dropbtn">...
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/login.html">Session</a>
+				<a href="/about.html">About us</a>
+			</div>
+		</div>
+	</div>
+	<div class="alert">
+		<table>
+			<tr>
+				<td style="border-bottom:none">
+					<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_nKCnOy.json" mode="bounce"
+						background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay>
+					</lottie-player>
+				</td>
+				<td style="border-bottom:none">
+					<p>Due to pandemic caused by COVID-19, our center will remain
+						closed until new advise. We apologize for any inconvenience.</p>
+				</td>
+				<td style="border-bottom:none"><span class="closebtn"
+						onclick="this.parentElement.parentElement.parentElement.parentElement.style.display='none';">&times;</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<h1 align="center">CiberGym Main Page</h1>
+		{{#notLogged}}
+		<h2 align="center">Welcome to CiberGym, the place where every change is possible.</h2>
+		{{/notLogged}}
+		{{#logged}}
+		<h2>Welcome back, {{name}}</h2>
+
+		<h3>Would you like to use the Rest API or the Model, View, Controller technology?</h3>
+	</div>
+	<div>
+		<input id="mainInput" type='button' onclick="location.href ='/menuAPI'" value='Use Rest API'>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/util/logo.png" height=150px>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="mainInput" type='button' onclick="location.href ='/menuMVC'" value='Use MVC'>
+		<br><br>
+		{{/logged}}
+		<input id="mainInput" type='button' onclick="location.href ='/login.html'" value='Manage session'>
+	</div>
+	{{#notLogged}}
+	<div>
+		<br>
+		<h2>Have a look at everything you could enjoy!</h2>
+		<input id="secondInput" type='button' onclick="location.href ='/auxLessonFilters'" value='Search lessons'>
+		<br><br>
+		<table id='table'>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Beginning Time</th>
+					<th>Ending Time</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#registeredLessons}}
+				<tr>
+					<td>{{name}}</td>
+					<td>{{{description}}}</td>
+					<td>{{begginingHour}}:{{begginingMinutes}}</td>
+					<td>{{endingHour}}:{{endingMinutes}}</td>
+				</tr>
+				{{/registeredLessons}}
+			</tbody>
+		</table>
+	</div>
+	{{/notLogged}}
+</body>
+
+</html>

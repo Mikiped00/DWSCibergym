@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>CyberGYM URJC</title>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="/util/favicon.ico" sizes="16x16">
+	<link rel="stylesheet" type="text/css" href="/util/style.css">
+</head>
+
+<body>
+	<div class="navbar">
+		<a href="/">Home</a>
+		<div class="dropdown" sec:authorize="isAuthenticated()">
+			<button class="dropbtn">MVC
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/showProfile">MVC Profile</a>
+				<a href="/menuMVC">MVC Menu</a>
+			</div>
+		</div>
+		<div class="dropdown" sec:authorize="isAuthenticated()">
+			<button class="dropbtn">API
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/api/member/showProfile.html">Rest API Profile</a>
+				<a href="/menuAPI">Rest API Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">...
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/login.html">Session</a>
+				<a href="/about.html">About us</a>
+			</div>
+		</div>
+	</div>
+	<h1 align="center">Lesson's Search</h1>
+	<div>
+		<div sec:authorize="hasRole('ROLE_ADMIN')">
+			<input id="secondInput" type='button' onclick="location.href ='/springmvc/lessonMVC.html'" value='Go Back'>
+		</div>
+		<div sec:authorize="hasRole('ROLE_USER')">
+			<input id="secondInput" type='button' onclick="location.href ='/menuMVC'" value='Go Back'>
+		</div>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="secondInput" type='button' onclick="location.href ='/'" value='Go to Main Page'>
+	</div>
+	<br>
+	<div class="row">
+		<form th:action='@{/lessonFilter}' method="post">
+			<div class="column" style="background-color: #FA9F52;">
+				<h2>Search by name</h2>
+				<h4>Name beginning</h4>
+				<input class="filterInput" type='text' th:name='name' placeholder='Name begins with...'>
+			</div>
+			<div class="column" style="background-color: #52DDFA;">
+				<h2>Search by available places</h2>
+				<h4>Available places under a value</h4>
+				<input class="filterInput" type='number' th:name='placesUnder' placeholder='Places under...'>
+				<h4>Available places over a value</h4>
+				<input class="filterInput" type='number' th:name='placesOver' placeholder='Places over...'>
+			</div>
+			<div class="column" style="background-color: #4BAD88;">
+				<h2>Search by beginning time</h2>
+				<h4>Beginning time before a time</h4>
+				<input class="filterInput" type='number' th:name='begginingHourBefore' placeholder='Hour before...'>
+				<h4>Beginning time after a time</h4>
+				<input class="filterInput" type='number' th:name='begginingHourAfter' placeholder='Hour after...'>
+			</div>
+			<div class="column" style="background-color: #94886C;">
+				<h2>Search by ending time</h2>
+				<h4>Ending time before a time</h4>
+				<input class="filterInput" type='number' th:name='endingHourBefore' placeholder='Hour before...'>
+				<h4>Ending time after a time</h4>
+				<input class="filterInput" type='number' th:name='endingHourAfter' placeholder='Hour after...'>
+			</div>
+			<br>
+			<br>
+			<div><input id="mainInput" type='submit' th:name="action" th:value='Send' /></div>
+		</form>
+	</div>
+	<div th:if="${showResults}">
+		<br><br>
+		<table id='table'>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Available places</th>
+					<th>Beginning hour</th>
+					<th>Ending hour</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${filteredLessons.empty}">
+					<td colspan="5"> No lessons matching the input </td>
+				</tr>
+				<tr th:each="lesson : ${filteredLessons}">
+					<td><span th:text="${lesson.name}"> Name </span></td>
+					<td><span th:utext="${lesson.description}"> Description </span></td>
+					<td><span th:text="${lesson.availablePlaces}"> Available places </span></td>
+					<td><span th:text="${lesson.begginingHour + ':' + lesson.begginingMinutes}"> Beginning Hour </span>
+					</td>
+					<td><span th:text="${lesson.endingHour + ':' + lesson.endingMinutes}"> Ending Hour </span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

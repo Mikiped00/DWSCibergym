@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>CyberGYM URJC</title>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="/util/favicon.ico" sizes="16x16">
+	<link rel="stylesheet" type="text/css" href="/util/style.css">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="navbar">
+		<a href="/">Home</a>
+		<div class="dropdown">
+			<button class="dropbtn">MVC
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/showProfile">MVC Profile</a>
+				<a href="/menuMVC">MVC Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">API
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/api/member/showProfile.html">Rest API Profile</a>
+				<a href="/menuAPI">Rest API Menu</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">...
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/login.html">Session</a>
+				<a href="/about.html">About us</a>
+			</div>
+		</div>
+	</div>
+	<div>
+		<h1>Show Profile</h1>
+		<br><br>
+		<table id='table'>
+			<thead>
+				<tr>
+					<th>DNI</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Fee</th>
+					<th>Reserved lesson</th>
+					<th>Modify</th>
+					<th>Change password</th>
+					<th>Reserve</th>
+					<th>Cancel reserve</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#memberProfile}}
+				<tr>
+					<td>{{dni}}</td>
+					<td>{{name}}</td>
+					<td>{{email}}</td>
+					<td>{{fee}} €</td>
+					{{/memberProfile}}
+					<td>{{membersLessonName}}
+						{{#memberProfile}}
+					<td><input id="secondInput" type='button' onclick="location.href ='/auxModifyMember'"
+							value='Modify profile'></td>
+					<td><input id="secondInput" type='button' onclick="location.href ='/auxChangePass'"
+							value='Change password'></td>
+					<td><input id="secondInput" type='button' onclick="location.href ='/auxReserveLesson'"
+							value='Reserve'></td>
+					<td><input id="secondInput" type='button' onclick="location.href ='/cancelLesson'"
+							value='Cancel reserve'></td>
+				</tr>
+				{{/memberProfile}}
+			</tbody>
+		</table>
+		<br><br>
+		<input id="mainInput" type='button' onclick="location.href ='{{route}}'" value='Go Back'>
+
+	</div>
+
+
+</body>
+
+</html
