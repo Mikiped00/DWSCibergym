@@ -1,0 +1,44 @@
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+      springframework:
+        web: DEBUG
+    sql: DEBUG
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:keystore.jks
+    key-store-password: password
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: [userBBDD]
+    password: [passwdBBDD]
+    url: jdbc:mysql://localhost:3306/[schemaName]?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+  mustache:
+    expose-request-attributes: true
+    suffix: .html
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: [googleClientId]
+            clientSecret: [googleClientSecret]
+          github:
+              clientId: [githubClientId]
+              clientSecret: [githubClientSecret]
+  mvc:
+    dispatch-options-request: true
